@@ -31,7 +31,7 @@ ROOT_DOMAIN = os.environ.get('ROOT_DOMAIN', 'http://localhost:3000')
 
 INSTALLED_APPS = [
     'customadmin',
-    
+
     'wagtail.contrib.forms',
     'wagtail.contrib.modeladmin',
     'wagtail.contrib.redirects',
@@ -104,6 +104,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'CMS.context_processors.settings_avaliable_to_templates'
             ],
         },
     },
@@ -220,6 +221,8 @@ DEFAULT_FILE_STORAGE = 'storages.backends.azure_storage.AzureStorage'
 AZURE_ACCOUNT_NAME = os.environ.get('AZURE_ACCOUNT_NAME')    # eg. 'campaignstorage'
 AZURE_ACCOUNT_KEY = os.environ.get('AZURE_ACCOUNT_KEY')      # eg. '<secret key>'
 AZURE_CONTAINER = os.environ.get('AZURE_CONTAINER')          # eg. 'campaign-resource-centre'
+CIVICUK_ID = os.environ.get('CIVICUK_ID')                    # from civicuk.com
+GOOGLE_ANALYTICS_ID = os.environ.get('GOOGLE_ANALYTICS_ID')
 
 CORS_ORIGIN_ALLOW_ALL = True
 
