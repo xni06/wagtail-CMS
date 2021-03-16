@@ -36,13 +36,17 @@ class Command(SimpleCommand):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        print(os.environ.get('DBHOST') not in self.db_host)
+        print(os.environ.get('DBNAME') != self.db_name)
+        print(os.environ.get('DBUSER') != self.db_user)
+        print(os.environ.get('DBPASSWORD') != self.db_password)
 
         if os.environ.get('DBHOST') not in self.db_host or \
            os.environ.get('DBNAME') != self.db_name or \
            os.environ.get('DBUSER') != self.db_user or \
            os.environ.get('DBPASSWORD') != self.db_password:
             raise CommandError('DBHOST, DBNAME, DBUSER & DBPASSWORD should ' + \
-                'be pointing to the local PostgresSQL in docker')
+                'be pointing to the local PostgresSQL')
 
         self.message_count = 1
         self.json_file = str(Path(self.json_file))
