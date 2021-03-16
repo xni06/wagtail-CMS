@@ -32,6 +32,7 @@ jobs:
         ports:
            - 4001:27017
 
+
     steps:
     - uses: actions/checkout@v1
     - name: Build the docker-compose stack
