@@ -2,7 +2,7 @@ name: Docker Based CI
 
 on:
   push:
-    branches: [ rob-fixes ]
+    branches: [ ci-setup-testing ]
   pull_request:
     branches: [ rob-fixes ]
 
@@ -31,7 +31,6 @@ jobs:
           MONGO_INITDB_ROOT_PASSWORD: "mongodb"
         ports:
            - 4001:27017
-
 
     steps:
     - uses: actions/checkout@v1
