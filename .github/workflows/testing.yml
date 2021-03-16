@@ -15,20 +15,18 @@ jobs:
     services:
       db:
         image: postgres:9.6
+        restart: always
         environment:
           POSTGRES_USER: docker
           POSTGRES_PASSWORD: docker
           POSTGRES_DB: django
-        ports:
-           - 3001:5432
 
       mongo:
         image: mongo
+        restart: always
         environment:
           MONGO_INITDB_ROOT_USERNAME: "mongodb"
           MONGO_INITDB_ROOT_PASSWORD: "mongodb"
-        ports:
-           - 4001:27017
 
     steps:
     - uses: actions/checkout@v1
