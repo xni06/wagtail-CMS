@@ -5,7 +5,7 @@ services:
     container_name:                 "wagtail"
     environment:
       # Postgres
-      DBHOST:                       "localhost:3001"
+      DBHOST:                       "0.0.0.0"
       DBNAME:                       "django"
       DBUSER:                       "docker"
       DBPASSWORD:                   "docker"
@@ -17,7 +17,7 @@ services:
       DATASETAPIKEY:                "${DATASETAPIKEY}"
       AZURECOSMOSDBURI:             ""
       AZURECOSMOSDBKEY:             ""
-      MONGODB_HOST:                 "localhost:4001"
+      MONGODB_HOST:                 "0.0.0.0"
       MONGODB_USERNAME:             "mongodb"
       MONGODB_PASSWORD:             "mongodb"
       TEST_COURSES:                 ""

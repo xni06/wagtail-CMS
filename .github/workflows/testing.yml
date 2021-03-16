@@ -13,13 +13,16 @@ jobs:
     runs-on: ubuntu-latest
 
     services:
-      db:
-        image: postgres:9.6
-        restart: always
-        environment:
+      postgres:
+        image: postgres:11.7-alpine
+        env:
+          POSTGRES_DB: django
           POSTGRES_USER: docker
           POSTGRES_PASSWORD: docker
-          POSTGRES_DB: django
+        ports:
+          - 5432:5432
+        # needed because the postgres container does not provide a healthcheck
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
       mongo:
         image: mongo
