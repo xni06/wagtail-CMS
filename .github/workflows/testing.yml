@@ -15,7 +15,6 @@ jobs:
     services:
       db:
         image: postgres:9.6
-        restart: always
         environment:
           POSTGRES_USER: docker
           POSTGRES_PASSWORD: docker
@@ -25,7 +24,6 @@ jobs:
 
       mongo:
         image: mongo
-        restart: always
         environment:
           MONGO_INITDB_ROOT_USERNAME: "mongodb"
           MONGO_INITDB_ROOT_PASSWORD: "mongodb"
