@@ -25,7 +25,7 @@ from django.conf import settings
 class Command(SimpleCommand):
     help = 'Populates Postgres using the data in the CMS fixture folder'
 
-    db_host                 = 'db'
+    db_host                 = ['db', '0.0.0.0', 'localhost']
     db_name                 = 'django'
     db_user                 = 'docker'
     db_password             = 'docker'
@@ -37,7 +37,7 @@ class Command(SimpleCommand):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-        if os.environ.get('DBHOST') != self.db_host or \
+        if os.environ.get('DBHOST') not in self.db_host or \
            os.environ.get('DBNAME') != self.db_name or \
            os.environ.get('DBUSER') != self.db_user or \
            os.environ.get('DBPASSWORD') != self.db_password:
