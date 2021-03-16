@@ -12,6 +12,24 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    services:
+      db:
+        image: postgres:9.6
+        container_name: db
+        restart: always
+        environment:
+          POSTGRES_USER: docker
+          POSTGRES_PASSWORD: docker
+          POSTGRES_DB: django
+
+      mongo:
+        image: mongo
+        container_name: mongo
+        restart: always
+        environment:
+          MONGO_INITDB_ROOT_USERNAME: "mongodb"
+          MONGO_INITDB_ROOT_PASSWORD: "mongodb"
+
     steps:
     - uses: actions/checkout@v1
     - name: Build the docker-compose stack
@@ -20,8 +38,6 @@ jobs:
       run: docker ps -a
     - name: Check logs
       run: docker logs wagtail
-    - name: Check Postgres
-      run: docker exec postgres psql --version
     - name: Populate Postgres
       run: docker exec wagtail python manage.py populate_cms
     - name: Populate MongoDB (institutions)
