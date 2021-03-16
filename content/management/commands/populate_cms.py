@@ -36,10 +36,10 @@ class Command(SimpleCommand):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        print(os.environ.get('DBHOST') not in self.db_host)
-        print(os.environ.get('DBNAME') != self.db_name)
-        print(os.environ.get('DBUSER') != self.db_user)
-        print(os.environ.get('DBPASSWORD') != self.db_password)
+        print(os.environ.get('DBHOST'))
+        print(os.environ.get('DBNAME'))
+        print(os.environ.get('DBUSER'))
+        print(os.environ.get('DBPASSWORD'))
 
         if os.environ.get('DBHOST') not in self.db_host or \
            os.environ.get('DBNAME') != self.db_name or \
