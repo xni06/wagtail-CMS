@@ -2,7 +2,7 @@ name: Docker Based CI
 
 on:
   push:
-    branches: [ ci-setup-testing ]
+    branches: [ rob-fixes ]
   pull_request:
     branches: [ rob-fixes ]
 
@@ -15,20 +15,22 @@ jobs:
     services:
       db:
         image: postgres:9.6
-        container_name: db
         restart: always
         environment:
           POSTGRES_USER: docker
           POSTGRES_PASSWORD: docker
           POSTGRES_DB: django
+        ports:
+           - 3001:5432
 
       mongo:
         image: mongo
-        container_name: mongo
         restart: always
         environment:
           MONGO_INITDB_ROOT_USERNAME: "mongodb"
           MONGO_INITDB_ROOT_PASSWORD: "mongodb"
+        ports:
+           - 4001:27017
 
     steps:
     - uses: actions/checkout@v1
