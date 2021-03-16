@@ -44,6 +44,10 @@ jobs:
         export MONGODB_HOST=0.0.0.0
         export MONGODB_USERNAME=mongodb
         export MONGODB_PASSWORD=mongodb
+    - name: Install Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
     - name: Populate Postgres
       run: python manage.py populate_cms
     - name: Populate MongoDB (institutions)
