@@ -37,10 +37,10 @@ class Command(SimpleCommand):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-        if os.environ.get('DBHOST') not in self.db_host or \
-           os.environ.get('DBNAME') != self.db_name or \
-           os.environ.get('DBUSER') != self.db_user or \
-           os.environ.get('DBPASSWORD') != self.db_password:
+        if settings.DBHOST not in self.db_host or \
+           settings.DBNAME != self.db_name or \
+           settings.DBUSER != self.db_user or \
+           settings.DBPASSWORD != self.db_password:
             raise CommandError('DBHOST, DBNAME, DBUSER & DBPASSWORD should ' + \
                 'be pointing to the local PostgresSQL')
 

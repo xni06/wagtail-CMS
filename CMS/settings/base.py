@@ -203,6 +203,11 @@ BASE_URL = os.environ.get('ROOT_DOMAIN', 'http://example.com')
 
 # Search API settings
 
+DBHOST = os.environ.get('DBHOST')
+DBNAME = os.environ.get('DBNAME')
+DBUSER = os.environ.get('DBUSER')
+DBPASSWORD = os.environ.get('DBPASSWORD')
+DBPORT = os.environ.get('DBPORT')
 SEARCHAPIHOST = os.environ.get('SEARCHAPIHOST')
 DATASETAPIHOST = os.environ.get('DATASETAPIHOST')
 DATASETAPIKEY = os.environ.get('DATASETAPIKEY')

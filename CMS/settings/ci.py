@@ -13,14 +13,21 @@ DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
 # NOTE: this SECRET_KEY is ONLY used in testing, NOT used in production
 SECRET_KEY = 'secret-key-for-testing'
 
+# used by Github Actions because you can't set environement variables
+DBHOST = 'localhost'
+DBNAME = 'django'
+DBUSER = 'docker'
+DBPASSWORD = 'docker'
+DBPORT = '5432'
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'HOST': 'localhost',
-        'NAME': 'django',
-        'USER': 'docker',
-        'PASSWORD': 'docker',
-        'PORT': '5432'
+        'HOST': DBHOST,
+        'NAME': DBNAME,
+        'USER': DBUSER,
+        'PASSWORD': DBPASSWORD,
+        'PORT': DBPORT
     }
 }
 
