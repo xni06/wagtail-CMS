@@ -47,4 +47,6 @@ jobs:
     - name: Populate MongoDB (courses)
       run: python manage.py populate_courses
     - name: Run test suite
-      run: python manage.py test
+      run: |
+        python manage.py test --tag=azure
+        python manage.py test --tag=github
