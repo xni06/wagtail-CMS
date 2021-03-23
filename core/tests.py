@@ -104,7 +104,6 @@ class CoreModelsTests(UniSimpleTestCase):
         self.assertEquals(created_page.get_language(), enums.languages.WELSH)
 
 
-@tag('azure')
 class BaseTestCase(TestCase):
     mongo_host      = 'mongo'
     mongo_username  = 'mongodb'
