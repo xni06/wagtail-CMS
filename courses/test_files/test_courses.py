@@ -18,7 +18,7 @@ class CoursesTestCase(BaseTestCase):
         response = self.client.get('/')
         self.assertEqual(200, response.status_code)
 
-    def testrs_LLB_LAW(self):
+    def test_LLB_LAW(self):
 
         print('---')
         print(sys.argv)
