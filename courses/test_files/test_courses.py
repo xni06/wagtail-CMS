@@ -21,9 +21,7 @@ class CoursesTestCase(BaseTestCase):
         print('---')
         print(sys.argv)
         print('---')
-        print(settings.DBHOST)
-        print('---')
-        print(DATABASES['default']['ENGINE'])
+        print(settings.DATABASES['default'])
         print('---')
 
         response = self.client.get('http://localhost/course-details/10007804/U18-LAWLLB/Full-time/')
