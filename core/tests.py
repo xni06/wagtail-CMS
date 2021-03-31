@@ -105,8 +105,10 @@ class CoreModelsTests(UniSimpleTestCase):
 
 
 class BaseTestCase(TestCase):
+
     client          = None
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.client = Client()
+        #management.call_command('populate_cms')
