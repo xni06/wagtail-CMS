@@ -34,6 +34,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+    - name: Branch name
+      run: echo running on branch ${GITHUB_REF##*/}
     - name: Copy CI Settings file
       run: cp ./CMS/settings/ci.py ./CMS/settings/dev.py
     - name: Install Dependencies
@@ -48,5 +50,5 @@ jobs:
       run: python manage.py populate_courses
     - name: Run test suite
       run: |
-        python manage.py test --tag=azure
-        python manage.py test --tag=github
+        python manage.py test --tag=azure --keepdb
+        python manage.py test --tag=github --keepdb
