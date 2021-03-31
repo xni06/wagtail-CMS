@@ -1,5 +1,3 @@
-import sys
-
 from django.test import tag
 
 from wagtail.core.models import Page
@@ -20,8 +18,6 @@ class CoursesTestCase(BaseTestCase):
 
     def test_LLB_LAW(self):
 
-        print('---')
-        print(sys.argv)
         print('---')
         print(settings.DATABASES['default'])
         print('---')
