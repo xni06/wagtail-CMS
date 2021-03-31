@@ -102,14 +102,3 @@ class CoreModelsTests(UniSimpleTestCase):
         self.assertIsTrue('cy' in created_page.url)
 
         self.assertEquals(created_page.get_language(), enums.languages.WELSH)
-
-
-class BaseTestCase(TestCase):
-
-    client = None
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.client = Client()
-        print('***')
-        management.call_command('populate_cms')

@@ -1,15 +1,17 @@
-from django.test import tag
+from django.test import TestCase, tag
 
 from wagtail.core.models import Page
 
-from core.tests import BaseTestCase
 from courses.models import CourseManagePage
 
 from django.conf import settings
 
 
 @tag('github')
-class CoursesTestCase(BaseTestCase):
+class CoursesTestCase(TestCase):
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
 
     def test_front_page(self):
 
@@ -17,6 +19,8 @@ class CoursesTestCase(BaseTestCase):
         self.assertEqual(200, response.status_code)
 
     def test_LLB_LAW(self):
+
+        management.call_command('populate_cms')
 
         print('---')
         print(settings.DATABASES['default'])
