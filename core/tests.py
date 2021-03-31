@@ -1,4 +1,3 @@
-from django.core import management
 from django.test import TestCase, Client, tag
 from django.core.management.base import CommandError
 from django.contrib.contenttypes.models import ContentType

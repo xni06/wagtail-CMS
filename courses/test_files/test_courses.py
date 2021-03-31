@@ -1,3 +1,4 @@
+from django.core import management
 from django.test import TestCase, tag
 
 from wagtail.core.models import Page
