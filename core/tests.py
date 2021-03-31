@@ -105,24 +105,8 @@ class CoreModelsTests(UniSimpleTestCase):
 
 
 class BaseTestCase(TestCase):
-    mongo_host      = 'mongo'
-    mongo_username  = 'mongodb'
-    mongo_password  = 'mongodb'
     client          = None
-    institution_id  = 10005343
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.client = Client()
-
-    def populate_mongodb(self):
-        if settings.MONGODB_HOST == self.mongo_host and \
-           settings.MONGODB_USERNAME == self.mongo_username and \
-           settings.MONGODB_PASSWORD == self.mongo_password:
-            mongo = Mongo('institutions')
-            result = mongo.get_one(
-                {'institution_id': str(self.institution_id)}
-            )
-            if result is None:
-                management.call_command('populate_institutions')
-                management.call_command('populate_courses')
