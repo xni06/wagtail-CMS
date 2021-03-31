@@ -111,4 +111,5 @@ class BaseTestCase(TestCase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.client = Client()
-        #management.call_command('populate_cms')
+        if Page.objects.count() < 100:
+            management.call_command('populate_cms')
