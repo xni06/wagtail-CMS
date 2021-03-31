@@ -11,8 +11,8 @@ from django.conf import settings
 @tag('github')
 class CoursesTestCase(TestCase):
 
-    def __init__(self):
-        super().__init__()
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
         management.call_command('populate_cms')
 
     def test_front_page(self):
