@@ -23,8 +23,8 @@ services:
       # CosmosDB (via azure.cosmos library)
       # (used to extract data from CosmosDB and populate fixtures)
       # (these can be found on the CosmosDB instance under "Keys")
-      AZURECOSMOSDBURI:             ""
-      AZURECOSMOSDBKEY:             ""
+      AZURECOSMOSDBURI:             "${AZURECOSMOSDBURI}"
+      AZURECOSMOSDBKEY:             "${AZURECOSMOSDBKEY}"
       # MongoDB (used for local development and testing)
       MONGODB_HOST:                 "${MONGODB_HOST}"
       MONGODB_USERNAME:             "${MONGODB_USERNAME}"
